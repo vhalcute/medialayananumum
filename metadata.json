@@ -1,0 +1,6 @@
+{
+  "name": "Media Layanan Umum Kanwil DJPb Provinsi Jambi",
+  "description": "Portal Layanan Digital Terpadu Kanwil DJPb Provinsi Jambi untuk Subbagian TURT, Kepegawaian, Penilaian Kinerja, dan Keuangan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

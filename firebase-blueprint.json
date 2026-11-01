@@ -1,0 +1,56 @@
+{
+  "entities": {
+    "AdminUser": {
+      "title": "AdminUser",
+      "description": "Pengguna akses admin dan satker",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "username": { "type": "string" },
+        "role": { "type": "string", "enum": ["Admin", "Kanwil", "KPPN"] },
+        "statusAkses": { "type": "string", "enum": ["Aktif", "Nonaktif", "Terkunci"] },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["username", "role", "statusAkses"]
+    },
+    "EmployeeAdvocacy": {
+      "title": "EmployeeAdvocacy",
+      "description": "Data partisipasi Employee Advocacy pegawai",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "namaPegawai": { "type": "string" },
+        "nip": { "type": "string" },
+        "bidang": { "type": "string" },
+        "statusPengisian": { "type": "string" }
+      },
+      "required": ["namaPegawai", "statusPengisian"]
+    },
+    "PerformanceMilestone": {
+      "title": "PerformanceMilestone",
+      "description": "Tahapan perekaman capaian IKI TW III 2026",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number" },
+        "activity": { "type": "string" },
+        "deadline": { "type": "string" },
+        "isCompleted": { "type": "boolean" }
+      },
+      "required": ["activity", "deadline"]
+    }
+  },
+  "firestore": {
+    "/admin_users/{userId}": {
+      "schema": { "$ref": "#/entities/AdminUser" },
+      "description": "Data akun hak akses admin"
+    },
+    "/employee_advocacy/{recordId}": {
+      "schema": { "$ref": "#/entities/EmployeeAdvocacy" },
+      "description": "Data monitoring employee advocacy pegawai"
+    },
+    "/performance_milestones/{milestoneId}": {
+      "schema": { "$ref": "#/entities/PerformanceMilestone" },
+      "description": "Data jadwal tahapan capaian IKI"
+    }
+  }
+}
